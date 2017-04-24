@@ -1,6 +1,6 @@
 # npmtest-react-chrome-extension-boilerplate
 
-#### test coverage for  [react-chrome-extension-boilerplate (v0.9.0)](https://github.com/jhen0409/react-chrome-extension-boilerplate#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-react-chrome-extension-boilerplate.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-react-chrome-extension-boilerplate) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-react-chrome-extension-boilerplate.svg)](https://travis-ci.org/npmtest/node-npmtest-react-chrome-extension-boilerplate)
+#### basic test coverage for  react-chrome-extension-boilerplate (v0.9.0)  [![npm package](https://img.shields.io/npm/v/npmtest-react-chrome-extension-boilerplate.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-react-chrome-extension-boilerplate) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-react-chrome-extension-boilerplate.svg)](https://travis-ci.org/npmtest/node-npmtest-react-chrome-extension-boilerplate)
 
 #### Boilerplate for Chrome extension React.js project
 
@@ -10,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-react-chrome-extension-boilerplate/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-react-chrome-extension-boilerplate/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-react-chrome-extension-boilerplate/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-react-chrome-extension-boilerplate/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-react-chrome-extension-boilerplate/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-react-chrome-extension-boilerplate/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-react-chrome-extension-boilerplate/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-react-chrome-extension-boilerplate/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-react-chrome-extension-boilerplate/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-react-chrome-extension-boilerplate/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-react-chrome-extension-boilerplate/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-react-chrome-extension-boilerplate/build/coverage.html/index.html)
 
@@ -35,23 +35,34 @@
 ```json
 
 {
-    "author": {
-        "name": "Jhen"
-    },
-    "bugs": {
-        "url": "https://github.com/jhen0409/react-chrome-extension-boilerplate/issues"
-    },
-    "dependencies": {
-        "bluebird": "^3.3.4",
-        "classnames": "^2.1.3",
-        "react": "^15.0.2",
-        "react-dock": "^0.2.3",
-        "react-dom": "^15.0.2",
-        "react-redux": "^4.3.0",
-        "redux": "^3.2.1",
-        "redux-thunk": "^2.0.1"
-    },
+    "name": "react-chrome-extension-boilerplate",
+    "version": "0.9.0",
     "description": "Boilerplate for Chrome extension React.js project",
+    "scripts": {
+        "dev": "node scripts/dev",
+        "build": "node scripts/build",
+        "compress": "node scripts/compress",
+        "compress-keygen": "crx keygen",
+        "clean": "rimraf build/ dev/ *.zip *.crx",
+        "lint": "eslint app chrome test scripts",
+        "test-e2e": "cross-env NODE_ENV=test mocha test/e2e",
+        "test": "cross-env NODE_ENV=test mocha -r ./test/setup-app test/app"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jhen0409/react-chrome-extension-boilerplate.git"
+    },
+    "keywords": [
+        "chrome",
+        "extension",
+        "react",
+        "redux",
+        "hot reload",
+        "webpack",
+        "boilerplate"
+    ],
+    "author": "Jhen <developer@jhen.me>",
+    "license": "MIT",
     "devDependencies": {
         "babel-core": "^6.3.15",
         "babel-eslint": "^6.0.0",
@@ -91,45 +102,17 @@
         "webpack": "^1.13.0",
         "webpack-httpolyglot-server": "^0.2.0"
     },
-    "directories": {},
-    "dist": {
-        "shasum": "56b1b45204024744aabcab953548c72de95f0642",
-        "tarball": "https://registry.npmjs.org/react-chrome-extension-boilerplate/-/react-chrome-extension-boilerplate-0.9.0.tgz"
+    "dependencies": {
+        "bluebird": "^3.3.4",
+        "classnames": "^2.1.3",
+        "react": "^15.0.2",
+        "react-dock": "^0.2.3",
+        "react-dom": "^15.0.2",
+        "react-redux": "^4.3.0",
+        "redux": "^3.2.1",
+        "redux-thunk": "^2.0.1"
     },
-    "gitHead": "23de2fcfaf372c297f72345baa404b8eb6d69d29",
-    "homepage": "https://github.com/jhen0409/react-chrome-extension-boilerplate#readme",
-    "keywords": [
-        "chrome",
-        "extension",
-        "react",
-        "redux",
-        "hot reload",
-        "webpack",
-        "boilerplate"
-    ],
-    "license": "MIT",
-    "maintainers": [
-        {
-            "name": "jhen0409"
-        }
-    ],
-    "name": "react-chrome-extension-boilerplate",
-    "optionalDependencies": {},
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/jhen0409/react-chrome-extension-boilerplate.git"
-    },
-    "scripts": {
-        "build": "node scripts/build",
-        "clean": "rimraf build/ dev/ *.zip *.crx",
-        "compress": "node scripts/compress",
-        "compress-keygen": "crx keygen",
-        "dev": "node scripts/dev",
-        "lint": "eslint app chrome test scripts",
-        "test": "cross-env NODE_ENV=test mocha -r ./test/setup-app test/app",
-        "test-e2e": "cross-env NODE_ENV=test mocha test/e2e"
-    },
-    "version": "0.9.0"
+    "bin": {}
 }
 ```
 
